@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+ 
+import '../Style/style.dart';
 
 // stateful Widget
+
 class ProductCreateScreen extends StatefulWidget{
   const ProductCreateScreen({super.key});
 
@@ -21,8 +24,18 @@ class _ProductCreateScreenState extends State<ProductCreateScreen>{
                 padding:const EdgeInsets.all(20),
                 child:Column(
                   children: [
-                    TextFormField(onChanged: (value){},),
-                    TextFormField(onChanged: (value){},),
+                    TextFormField(
+                      onChanged: (value){},
+                      decoration: AppInputDecoration('ProductName'),
+                    
+                      
+                      ),
+
+
+                    TextFormField(
+                      onChanged: (value){},
+                       decoration: AppInputDecoration('ProductName'),
+                    ),
                     TextFormField(onChanged: (value){},),
                     TextFormField(onChanged: (value){},),
                     TextFormField(onChanged: (value){},),
