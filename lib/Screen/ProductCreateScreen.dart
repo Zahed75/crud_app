@@ -58,6 +58,41 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
                           onChanged: (value) {},
                           decoration: AppInputDecoration('Total Price'),
                         ),
+
+                        SizedBox(height: 20,),
+
+                        AppDropDownStyle(
+
+                          DropdownButton(
+                            value:"",
+                          items:[
+                          DropdownMenuItem(child:Text('Select QT'),value:"",),
+                          DropdownMenuItem(child:Text('1Pcs'),value:"1Pcs",),
+                          DropdownMenuItem(child:Text('2Pcs'),value:"2Pcs",),
+                          DropdownMenuItem(child:Text('3Pcs'),value:"3Pcs",),
+                          DropdownMenuItem(child:Text('4Pcs'),value:"4Pcs",),
+                          
+                        ],
+                        
+                         onChanged: (value){
+
+                         },
+                         isExpanded: true,
+                         underline: Container(),
+                         )
+                        ),
+                        SizedBox(height: 20,),
+
+                        Container(
+                          child:ElevatedButton(
+                            style:AppButtonStyle(),
+                            onPressed: (){},
+                            
+                            child:SuccessButtonChild('Submit'),
+                            
+                            )
+                        )
+
                       ],
                     ))))
           ],
