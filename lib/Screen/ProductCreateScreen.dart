@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../Style/style.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 // stateful Widget
 
 class ProductCreateScreen extends StatefulWidget {
@@ -34,26 +33,33 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
     // Form Submit for validation
 
     FormOnSubmit(){
-      if(FormValues['Img']!.length == 0){
+      if(FormValues['Img']!.isEmpty){
+        ErrorToast("Image Link Required");
+      }
+
+      else if(FormValues['ProductName']!.isEmpty){
+        ErrorToast("Prouduct Name Required"); 
+      }
+      else if(FormValues['ProductCode']!.isEmpty){
+        ErrorToast("Product Code Required");
+      }
+   
+
+      else if(FormValues['UnitPrice']!.isEmpty){
+     ErrorToast("Product UnitPrice is Required");
+      }
+
+      else if(FormValues['TotalPrice']!.isEmpty){
+        ErrorToast("Product TotalPrice is  Required");
+      }
+
+       else if(FormValues['Qty']!.isEmpty){
+        ErrorToast("Product Qty is Required");
+      }
+
+      else{
+        //Data REST API...POST
         
-      }
-
-      else if(FormValues['ProductName']!.length == 0){
-
-      }
-      else if(FormValues['ProductCode']!.length == 0){
-
-      }
-      else if(FormValues['Img']!.length==0){
-
-      }
-
-      else if(FormValues['UnitPrice']!.length==0){
-
-      }
-
-      else if(FormValues['TotalPrice']!.length==0){
-
       }
        
     }
@@ -79,7 +85,7 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
                           },
                           decoration: AppInputDecoration('ProductName'),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
@@ -88,7 +94,7 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
                           },
                           decoration: AppInputDecoration('ProductCode'),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
@@ -97,7 +103,7 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
                           },
                           decoration: AppInputDecoration('ProductImage'),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
 
@@ -108,7 +114,7 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
                           },
                           decoration: AppInputDecoration('Unit Price'),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
 
@@ -119,18 +125,18 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
                           decoration: AppInputDecoration('Total Price'),
                         ),
 
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20,),
 
 
                      AppDropDownStyle(
                       DropdownButton(
                         value:FormValues['Qty'] ,
-                        items:[
-                          DropdownMenuItem(child: Text('Select Qt'),value: "",),
-                          DropdownMenuItem(child: Text('1 pcs'),value: "1 pcs",),
-                          DropdownMenuItem(child: Text('2 pcs'),value: '2 pcs',),
-                          DropdownMenuItem(child: Text('3 pcs'),value: '3 pcs',),
-                          DropdownMenuItem(child: Text('4 pcs'),value: '4 pcs',),
+                        items:const [
+                          DropdownMenuItem(value: "",child: Text('Select Qt'),),
+                          DropdownMenuItem(value: "1 pcs",child: Text('1 pcs'),),
+                          DropdownMenuItem(value: '2 pcs',child: Text('2 pcs'),),
+                          DropdownMenuItem(value: '3 pcs',child: Text('3 pcs'),),
+                          DropdownMenuItem(value: '4 pcs',child: Text('4 pcs'),),
                         ],
                         onChanged: (Textvalue){
                           InputOnChange("Qty", Textvalue);
@@ -140,7 +146,7 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
                         isExpanded: true,
                       )
                   ),
-                        SizedBox(height: 20,),
+                        const SizedBox(height: 20,),
 
                         Container(
                           child:ElevatedButton(
